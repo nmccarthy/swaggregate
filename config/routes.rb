@@ -1,6 +1,7 @@
 Swaggregate::Application.routes.draw do
 
   match '/' => 'pages#home'
+  match '/login' => 'pages#login'
 
   #Omniauth routes
   match 'auth/:provider/callback', to: 'sessions#create'
