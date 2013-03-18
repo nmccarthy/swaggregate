@@ -1,4 +1,12 @@
 Swaggregate::Application.routes.draw do
+
+  match '/' => 'pages#home'
+
+  #Omniauth routes
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/login_failure')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
