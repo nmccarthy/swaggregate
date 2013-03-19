@@ -1,4 +1,24 @@
-<h1>Logged In</h1>
+</p>Hello <%= current_user.name %> (<%= link_to "Sign Out", signout_path %>)</p>
 
-</p>Hello <%= current_user.name %></p>
-<p><%= link_to "Sign Out", signout_path %></p>
+<h1>Your Subscriptions</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @subscriptions.each do |subscription| %>
+  <tr>
+    <td><%= subscription.name %></td>
+    <td><%= subscription.url %></td>
+    <td><%= link_to 'Show', subscription %></td>
+    <td><%= link_to 'Edit', edit_subscription_path(subscription) %></td>
+    <td><%= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= link_to 'New Subscription', new_subscription_path %></p>
