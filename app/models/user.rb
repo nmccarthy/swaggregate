@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :provider, :uid, :token, :token_secret, :body, :name
 
+  has_many :subscriptions
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]

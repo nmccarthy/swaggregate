@@ -1,5 +1,7 @@
 Swaggregate::Application.routes.draw do
 
+  resources :subscriptions
+
   match '/' => 'pages#home'
   match '/login' => 'pages#login'
 
