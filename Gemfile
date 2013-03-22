@@ -37,6 +37,5 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'feedzirra'
-# gem 'readability'
 gem 'omniauth'
 gem 'omniauth-readability'
