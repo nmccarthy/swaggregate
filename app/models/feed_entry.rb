@@ -14,11 +14,11 @@ class FeedEntry < ActiveRecord::Base
     entries.each do |entry|
       unless exists? :remote_entry_id => entry.id
         create!(
-          :title            => entry.title,
-          :summary          => entry.summary,
-          :url              => entry.url,
-          :published_date   => entry.published,
-          :remote_entry_id  => entry.id
+          :title            => entry.title.sanitize,
+          :summary          => entry.summary.sanitize,
+          :url              => entry.url.sanitize,
+          :published_date   => entry.published.sanitize,
+          :remote_entry_id  => entry.id.sanitize
         )
       end
     end
