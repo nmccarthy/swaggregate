@@ -7,12 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate
-    # user = current_user
-    # logger.debug "getting the user a different way maybe: " + user.id.to_s
-    if current_user
-      logger.debug "============== NOT REDIRECTED =============="
-    else
-      logger.debug "============== REDIRECTED =============="
+    if !current_user
       redirect_to "/login"
     end
   end
